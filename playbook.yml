@@ -67,7 +67,7 @@
 
     - name: Run Docker container
       docker_container:
-        name: weatherapp-_container
+        name: weatherapp-container
         image: hebamaher/weather-app
         state: started
         restart_policy: always
