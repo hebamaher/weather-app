@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Replace with your OpenWeatherMap API key
-API_KEY = "your_openweathermap_api_key"
+API_KEY = "9e4dcc4a4e198cc81d4d53f79dd40cc9"
 
 # SQLite database path
 DATABASE = "weather.db"
