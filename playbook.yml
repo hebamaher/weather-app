@@ -65,12 +65,12 @@
         name: hebamaher/weather-app
         source: pull
 
-    - name: Run Docker container in detach mode
-      docker_container:
-        name: weatherapp-container
-        image: hebamaher/weather-app
-        state: started
-        restart_policy: always
-        recreate: yes
-        ports:
-          - "5000:5000"
+    - name: Stop existing container (if running)
+      command: docker stop weather-app || true
+
+    - name: Remove old container (if exists)
+      command: docker rm weather-app || true
+
+    - name: Run new container in detached mode
+      command: docker run -d --name weather-app -p 5000:5000 hebamaher/weather-app:latest
+
