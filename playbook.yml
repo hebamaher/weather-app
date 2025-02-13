@@ -66,10 +66,12 @@
         source: pull
 
     - name: Stop existing container (if running)
-      command: docker stop weather-app || true
+      command: docker stop weather-app
+      ignore_errors: yes
 
     - name: Remove old container (if exists)
-      command: docker rm weather-app || true
+      command: docker rm weather-app
+      ignore_errors: yes
 
     - name: Run new container in detached mode
       command: docker run -d --name weather-app -p 5000:5000 hebamaher/weather-app:latest
